@@ -21,4 +21,11 @@ public class EurekaConsumerApplication {
     RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
+
+//    @Bean
+//    public IRule myRule() {
+//        //return new RoundRobinRule();
+//        //return new RandomRule();
+//        return new RandomRule();
+//    }
 }

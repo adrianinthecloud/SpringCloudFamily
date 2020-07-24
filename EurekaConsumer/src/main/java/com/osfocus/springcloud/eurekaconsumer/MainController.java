@@ -11,10 +11,12 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class MainController {
@@ -121,5 +123,25 @@ public class MainController {
         ResponseEntity<String> resEntity = restTemplate.getForEntity(url, String.class);
         System.out.println(resEntity);
         return resEntity;
+    }
+
+    @GetMapping(value = "/client8")
+    public ResponseEntity<Map> client8() {
+        String url = "http://" + provider + "/getMap";
+
+        ResponseEntity<Map> responseEntity = restTemplate.getForEntity(url, Map.class);
+        System.out.println(responseEntity);
+
+        return responseEntity;
+    }
+
+    @GetMapping(value = "/client9")
+    public @ResponseBody ResponseEntity client9() {
+        String url = "http://" + provider + "/person";
+
+        ResponseEntity<Person> responseEntity = restTemplate.getForEntity(url, Person.class);
+        System.out.println(responseEntity);
+
+        return responseEntity;
     }
 }

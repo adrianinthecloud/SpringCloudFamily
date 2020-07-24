@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -136,12 +138,22 @@ public class MainController {
     }
 
     @GetMapping(value = "/client9")
-    public @ResponseBody ResponseEntity client9() {
+    public @ResponseBody ResponseEntity<Person> client9() {
         String url = "http://" + provider + "/person";
 
         ResponseEntity<Person> responseEntity = restTemplate.getForEntity(url, Person.class);
         System.out.println(responseEntity);
 
         return responseEntity;
+    }
+
+    @GetMapping(value = "/client10")
+    public @ResponseBody Object client10() {
+        String url = "http://" + provider + "/getObj?name={name}";
+        Map<String, String> map = Collections.singletonMap("name", "Adrian");
+
+        Person object = restTemplate.getForObject(url, Person.class, map);
+
+        return object;
     }
 }

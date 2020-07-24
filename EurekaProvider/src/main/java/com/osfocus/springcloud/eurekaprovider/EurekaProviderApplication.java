@@ -9,5 +9,4 @@ public class EurekaProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(EurekaProviderApplication.class, args);
     }
-
 }

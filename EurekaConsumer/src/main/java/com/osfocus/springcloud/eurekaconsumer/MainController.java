@@ -5,9 +5,11 @@ import com.netflix.discovery.EurekaClient;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -29,6 +31,9 @@ public class MainController {
 
     @Autowired
     RestTemplate restTemplate;
+
+    @Value("${provider}")
+    String provider;
 
     @GetMapping("/getHi")
     public String getHi() {
@@ -107,5 +112,14 @@ public class MainController {
         String resStr = "result: " + restTemplate.getForObject(url, String.class);
 
         return resStr;
+    }
+
+    @GetMapping(value = "/client7")
+    public ResponseEntity<String> client7() {
+        String url = "http://" + provider + "/hi";
+
+        ResponseEntity<String> resEntity = restTemplate.getForEntity(url, String.class);
+        System.out.println(resEntity);
+        return resEntity;
     }
 }

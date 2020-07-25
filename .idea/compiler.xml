@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="UserAPI" />
         <module name="UserConsumer" />
         <module name="EurekaProvider" />
         <module name="UserProvider" />
@@ -19,6 +20,7 @@
       <module name="EurekaProvider" target="1.8" />
       <module name="EurekaServer" target="1.8" />
       <module name="SpringCloudFamily" target="1.5" />
+      <module name="UserAPI" target="11" />
       <module name="UserConsumer" target="11" />
       <module name="UserProvider" target="11" />
     </bytecodeTargetLevel>
@@ -28,6 +30,7 @@
       <module name="EurekaConsumer" options="-parameters" />
       <module name="EurekaProvider" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
+      <module name="UserAPI" options="-parameters" />
       <module name="UserConsumer" options="-parameters" />
       <module name="UserProvider" options="-parameters" />
     </option>

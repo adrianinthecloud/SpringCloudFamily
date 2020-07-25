@@ -1,9 +1,9 @@
-package com.osfocus.springcloud.userconsumer;
+package com.osfocus.userapi;
 
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(name = "user-provider")
+@RequestMapping("/User")
 public interface UserApi {
     @GetMapping("/alive")
     public String alive();

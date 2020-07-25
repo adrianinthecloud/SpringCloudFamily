@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/EurekaProvider/EurekaProvider.iml" filepath="$PROJECT_DIR$/EurekaProvider/EurekaProvider.iml" />
       <module fileurl="file://$PROJECT_DIR$/EurekaServer/EurekaServer.iml" filepath="$PROJECT_DIR$/EurekaServer/EurekaServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringCloudFamily.iml" filepath="$PROJECT_DIR$/SpringCloudFamily.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserAPI/UserAPI.iml" filepath="$PROJECT_DIR$/UserAPI/UserAPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/UserConsumer/UserConsumer.iml" filepath="$PROJECT_DIR$/UserConsumer/UserConsumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/UserProvider/UserProvider.iml" filepath="$PROJECT_DIR$/UserProvider/UserProvider.iml" />
     </modules>

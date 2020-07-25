@@ -3,6 +3,7 @@ package com.osfocus.springcloud.eurekaconsumer;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.bouncycastle.math.ec.ScaleYNegateXPointMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -170,4 +174,21 @@ public class MainController {
         return entity;
     }
 
+    @GetMapping(value = "/client12")
+    public Object client12(HttpServletResponse response) {
+        String url = "http://" + provider + "/postLocation";
+
+        Map<String, String> map = Collections.singletonMap("name", "Adrian");
+        URI location = restTemplate.postForLocation(url, map, Person.class);
+
+        System.out.println(location);
+
+        try {
+            response.sendRedirect(location.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

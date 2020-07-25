@@ -156,4 +156,18 @@ public class MainController {
 
         return object;
     }
+
+    @GetMapping(value = "/client11")
+    public @ResponseBody ResponseEntity client11() {
+        String url = "http://" + provider + "/person";
+
+        Person person = new Person("Tester", 20);
+
+        ResponseEntity<Person> entity = restTemplate.postForEntity(url, person, Person.class);
+
+        System.out.println("Entity = " + entity);
+
+        return entity;
+    }
+
 }

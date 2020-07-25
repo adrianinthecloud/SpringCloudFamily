@@ -2,9 +2,7 @@ package com.osfocus.springcloud.eurekaprovider;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Map;
@@ -41,5 +39,12 @@ public class MainController {
     @GetMapping("/getObj")
     public Person getObj(@RequestParam String name) {
         return new Person("Adrian", 20);
+    }
+
+    @PostMapping("/person")
+    public Person newPerson(@RequestBody Person person) {
+        System.out.println("person = " + person);
+
+        return person;
     }
 }

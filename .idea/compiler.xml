@@ -20,9 +20,9 @@
       <module name="EurekaProvider" target="1.8" />
       <module name="EurekaServer" target="1.8" />
       <module name="SpringCloudFamily" target="1.5" />
-      <module name="UserAPI" target="11" />
-      <module name="UserConsumer" target="11" />
-      <module name="UserProvider" target="11" />
+      <module name="UserAPI" target="8" />
+      <module name="UserConsumer" target="8" />
+      <module name="UserProvider" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

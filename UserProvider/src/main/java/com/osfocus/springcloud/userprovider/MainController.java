@@ -1,6 +1,8 @@
 package com.osfocus.springcloud.userprovider;
 
+import com.osfocus.userapi.Person;
 import com.osfocus.userapi.UserApi;
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -39,5 +41,12 @@ public class MainController implements UserApi {
         // TODO Auto-generated method stub
         System.out.println(map);
         return Collections.singletonMap(Integer.parseInt(map.get("id").toString()), map.get("name").toString());
+    }
+
+    @Override
+    public Person postPerson(Person person) {
+        System.out.println(ToStringBuilder.reflectionToString(person));
+
+        return person;
     }
 }

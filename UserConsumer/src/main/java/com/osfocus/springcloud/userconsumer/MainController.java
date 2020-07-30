@@ -1,5 +1,6 @@
 package com.osfocus.springcloud.userconsumer;
 
+import com.osfocus.userapi.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
@@ -42,4 +43,12 @@ public class MainController {
         return api.postMap(map);
     }
 
+    @GetMapping("/postMap")
+    public Person postPerson(@RequestParam Map<String, Object> map) {
+        Person person = new Person();
+        person.setId(Integer.valueOf(map.get("id").toString()));
+        person.setName(map.get("name").toString());
+
+        return api.postPerson(person);
+    }
 }

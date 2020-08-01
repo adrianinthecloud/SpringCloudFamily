@@ -3,16 +3,33 @@ package com.osfocus.springcloud.userprovider;
 import com.osfocus.userapi.Person;
 import com.osfocus.userapi.UserApi;
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
 public class MainController implements UserApi {
+
+    @Value("${server.port}")
+    private String port;
+
+    private AtomicInteger numOfInvocation = new AtomicInteger(0);
+
     @Override
     public String alive() {
-        return "ok test";
+        try {
+            TimeUnit.SECONDS.sleep(1);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Port " + port + " " + numOfInvocation.incrementAndGet() + " time(s) invocation.");
+        return "Port:" + port;
     }
 
     @GetMapping("/getMap")

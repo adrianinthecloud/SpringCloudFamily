@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
-@FeignClient(name = "user-provider")
+@FeignClient(name = "user-provider", fallback = UserProviderFallBack.class)
 public interface ConsumerApi extends UserApi {
-
     // this GetMapping is for Feign to construct API with provider mentioned above, i.e. user-provider/getMap here
     @GetMapping("/getMap")
     Map<Integer, String> getMap(@RequestParam("id") Integer id);

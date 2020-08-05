@@ -21,13 +21,13 @@ public class MainController implements UserApi {
 
     @Override
     public String alive() {
-        try {
-            TimeUnit.SECONDS.sleep(1);
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+//        try {
+//            TimeUnit.SECONDS.sleep(1);
+//
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        int i = 1/0;
         System.out.println("Port " + port + " " + numOfInvocation.incrementAndGet() + " time(s) invocation.");
         return "Port:" + port;
     }

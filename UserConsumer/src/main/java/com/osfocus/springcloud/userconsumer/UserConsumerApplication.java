@@ -9,10 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@EnableCircuitBreaker
 @EnableFeignClients
 public class UserConsumerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(UserConsumerApplication.class, args);
+    }
+
+    @Bean
+    @LoadBalanced
+    RestTemplate getRestTemplate() {
+        return new RestTemplate();
     }
 }

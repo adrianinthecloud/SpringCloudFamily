@@ -11,9 +11,12 @@ public class MainController {
     @Autowired
     ConsumerApi api;
 
+    @Autowired
+    RestService restService;
+
     @GetMapping("/alive")
     public Object getAlive() {
-        return api.alive();
+        return restService.alive();
     }
 
     @GetMapping("/map")

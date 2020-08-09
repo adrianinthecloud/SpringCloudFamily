@@ -8,5 +8,6 @@
     <file url="file://$PROJECT_DIR$/UserAPI/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/UserConsumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/UserProvider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ZuulGateway/src/main/java" charset="UTF-8" />
   </component>
 </project>

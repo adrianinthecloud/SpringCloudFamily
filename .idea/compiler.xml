@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="UserAPI" />
         <module name="UserConsumer" />
+        <module name="ZuulGateway" />
         <module name="EurekaProvider" />
         <module name="UserProvider" />
         <module name="EurekaServer" />
@@ -23,6 +24,7 @@
       <module name="UserAPI" target="8" />
       <module name="UserConsumer" target="8" />
       <module name="UserProvider" target="8" />
+      <module name="ZuulGateway" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -33,6 +35,7 @@
       <module name="UserAPI" options="-parameters" />
       <module name="UserConsumer" options="-parameters" />
       <module name="UserProvider" options="-parameters" />
+      <module name="ZuulGateway" options="-parameters" />
     </option>
   </component>
 </project>

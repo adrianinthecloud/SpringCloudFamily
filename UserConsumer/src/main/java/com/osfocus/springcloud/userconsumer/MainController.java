@@ -1,8 +1,10 @@
 package com.osfocus.springcloud.userconsumer;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.osfocus.userapi.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
@@ -13,6 +15,9 @@ public class MainController {
 
     @Autowired
     RestService restService;
+
+    @Value("${server.port}")
+    String port;
 
     @GetMapping("/alive")
     public Object getAlive() {
@@ -54,5 +59,11 @@ public class MainController {
         person.setName(map.get("name").toString());
 
         return api.postPerson(person);
+    }
+
+    @GetMapping("/alive2")
+    @HystrixCommand(defaultFallback = "back")
+    public String alive2() {
+        return "Consumer: " + port + "->>>>" + restService.alive();
     }
 }

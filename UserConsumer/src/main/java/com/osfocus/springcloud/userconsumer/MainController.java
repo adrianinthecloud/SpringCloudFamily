@@ -66,4 +66,8 @@ public class MainController {
     public String alive2() {
         return "Consumer: " + port + "->>>>" + restService.alive();
     }
+
+    public String back() {
+        return "fallback";
+    }
 }

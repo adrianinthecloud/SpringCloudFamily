@@ -27,7 +27,7 @@ public class MainController implements UserApi {
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
-        int i = 1/0;
+//        int i = 1/0;
         System.out.println("Port " + port + " " + numOfInvocation.incrementAndGet() + " time(s) invocation.");
         return "Port:" + port;
     }
